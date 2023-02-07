@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add New Record</title>
+
+<script type="text/javascript" th:src="@{script/AddNewRecord.js}"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<style type="text/css">
+
+.wrapper{
+text-align : center;
+}
+.button{
+	position : absolute;
+	top : 50%;
+	margin-left : -50px;
+
+}
+
+h1 {      
+  position: relative;      
+  padding: 10;      
+  margin: 10;      
+  font-family: 'Exo', sans-serif;  
+  font-weight: 300;      
+  font-size: 40px;      
+  color: #080808;      
+  -webkit-transition: all 0.4s ease 0s;      
+  -o-transition: all 0.4s ease 0s;      
+  transition: all 0.4s ease 0s;      
+  text-align: center;    
+  background-color: lightblue;   
+}     
+
+.nav {
+	background-color: lightblue;
+} 
+
+
+</style>
+</head>
+<body>
+
+<th:block th:if="${session.email==null}">
+<th:block th:include="login">
+</th:block>
+</th:block>
+<th:block th:if="${session.email!=null}">
+<div  class="nav" th:include="navbar ::navbar1"></div>
+
+
+
+	<div class="container">
+		<h1 class="center">ENTER SERVICES DETAIL HERE...</h1>
+
+ <form id="myform" action="#" th:onclick="add()" th:object="${record}" method="POST" class="row g-3">   <!-- action="DashBoard/saveRecord" -->
+			
+<!-- 			  Id <input type="text" th:field="{record.id}" class="form-control mb-4 col-4" readonly="readonly"/><br>
+ -->		
+ 		
+ 			Aggregrator<input type="text" th:field="*{aggregrator}" class="form-control mb-4 col-4" placeholder="aggregrator" id="aggregrator">  <br>
+			Client <input type="text" th:field="*{client}" class="form-control mb-4 col-4" placeholder="client" id="client"> <br>
+			Service <input type="text" th:field="*{service}" class="form-control mb-4 col-4" placeholder="service" id="service"><br>
+			Amount <input type="text" th:field="*{amount}"class="form-control mb-4 col-4" placeholder="amount" id="amount"> <br>
+			frontEndUrl <input type="text"	th:field="*{frontEndUrl}" class="form-control mb-4 col-4" placeholder="frontEndUrl" id="frontendurl"> <br>
+			schedulersBackendUrl <input	type="text" th:field="*{schedulersBackendUrl}" class="form-control mb-4 col-4" placeholder="schedulersBackendUrl" id="schedulersbackendurl"><br>
+			CCPortalUrl<input type="text" th:field="*{CCPortalUrl}"class="form-control mb-4 col-4" placeholder="CCPortalUrl" id="ccportalurl"> <br>
+			ServerDetails<input type="text" th:field="*{ServerDetails}" class="form-control mb-4 col-4" placeholder="ServerDetails" id="serverdetails"> <br>
+			Database<input type="text" th:field="*{Database}" class="form-control mb-4 col-4" placeholder="Database"id="database"><br>
+			serviceManager	<input type="text" th:field="*{serviceManager}" class="form-control mb-4 col-4" placeholder="serviceManager" id="servicemanager"> <br>
+			SDPUrl <input type="text"	th:field="*{SDPUrl}" class="form-control mb-4 col-4" placeholder="SDPUrl" id="sdpurl"> <br>
+			callBackUrl<input type="text" th:field="*{callBackUrl}" class="form-control mb-4 col-4" placeholder="callBackUrl" id="callbackurl"><br>
+			localLocation<input type="text" th:field="*{localLocation}"class="form-control mb-4 col-4" placeholder="localLocation" id="locallocation"> <br>
+			developer<input type="text"	th:field="*{developer}" class="form-control mb-4 col-4" placeholder="developer" id="developer"> <br>
+			servicelaunchDate<input type="text" th:field="*{serviceLaunchDate}" class="form-control mb-4 col-4" placeholder="servicelaunchDate" id="servicelaunchdate"><br>
+			field1<input type="text" th:field="*{field1}" class="form-control mb-4 col-4" placeholder="field1" id="field1"> <br>
+			field2<input type="text" th:field="*{field2}" class="form-control mb-4 col-4" placeholder="field2" id="field2"><br>
+			field3<input type="text" th:field="*{field3}" class="form-control mb-4 col-4" placeholder="field3" id="field3"> <br>
+			field4<input type="text" th:field="*{field4}" class="form-control mb-4 col-4" placeholder="field4" id="field4"> <br>
+			field5<input type="text" th:field="*{field5}" class="form-control mb-4 col-4" placeholder="field5" id="field5"> <br>
+			field6<input type="text" th:field="*{field6}" class="form-control mb-4 col-4" placeholder="field6"id="field6"> <br>
+			field7<input type="text" th:field="*{field7}" class="form-control mb-4 col-4" placeholder="field7" id="field7"> <br>
+			field8<input type="text" th:field="*{field8}" class="form-control mb-4 col-4" placeholder="field8" id="field8"> <br>
+			field9<input type="text" th:field="*{field9}" class="form-control mb-4 col-4" placeholder="field9" id="field9"> <br>
+			field10<input type="text" th:field="*{field10}" class="form-control mb-4 col-4" placeholder="field10" id="field10"> <br>
+
+   <div class="wrapper">
+  <button type="submit" class="btn btn-primary" >Save Record</button>
+  </div>
+</form>
+   <a th:href="@{${1}}" style="text-align: right"> <button>Back to Record</button></a>
+
+	</div>
+	</th:block>
+	
+<script type="text/javascript">
+
+
+
+</script>
+	
+	
+</body>
+</html>

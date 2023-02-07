@@ -1,0 +1,173 @@
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+
+<script type="text/javascript" src="script/IndexFile.js"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./AddRecord/css/AddRecord.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Navbar</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li><a href="showNewRecordForm">Add New Records</a></li>
+                <li><a href="#" onclick="AllRecord()">All Data</a></li>
+                <li><a href="export">Excel Sheet</a></li>
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+            <img src="./Login/img/figure/white-logo.png">
+        </div>
+    </nav>
+<div class="title">
+    <h1>Enter Service Details Here</h1>
+</div>
+ <form action="#" onclick="add()" id="myform">
+    <div class="body">
+   
+        <div class="input-group">
+        
+            <input  class="text-1" type="text" name="text-1" id="aggregrator" placeholder="Name">
+            <label for="text-1">Aggregrator</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="client" placeholder="Name">
+            <label for="text-1">Client</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="service" placeholder="Name">
+            <label for="text-1">Service</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="amount" placeholder="Name">
+            <label for="text-1">Amount</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input class="text-1" type="text" name="text-1" id="frontendurl"  placeholder="Name">
+            <label for="text-1">Froentend Url</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="schedulersbackendurl" placeholder="Name">
+            <label for="text-1">Scheduler Backend Url</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="ccportalurl" placeholder="Name">
+            <label for="text-1">CC Portal Url</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="serverdetails" placeholder="Name">
+            <label for="text-1">Server Details</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="database" placeholder="Name">
+            <label for="text-1">Database</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input class="text-1" type="text" name="text-1" id="servicemanager"  placeholder="Name">
+            <label for="text-1">Service Manager</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="sdpurl" placeholder="Name">
+            <label for="text-1">SDP Url</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input class="text-1" type="text" name="text-1" id="callbackurl"  placeholder="Name">
+            <label for="text-1">Call Url</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="locallocation" placeholder="Name">
+            <label for="text-1">Local Location</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="developer"  placeholder="Name">
+            <label for="text-1">Developer</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="servicelaunchdate"  placeholder="Name">
+            <label for="text-1">Service Launch Date</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field1" placeholder="Name">
+            <label for="text-1">Field 1</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field2"  placeholder="Name">
+            <label for="text-1">Field 2</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field3"  placeholder="Name">
+            <label for="text-1">Field 3</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field4"  placeholder="Name">
+            <label for="text-1">Field 4</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field5" placeholder="Name">
+            <label for="text-1">Field 5</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field6"  placeholder="Name">
+            <label for="text-1">Field 6</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input class="text-1" type="text" name="text-1" id="field7" placeholder="Name">
+            <label for="text-1">Field 7</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input class="text-1" type="text" name="text-1" id="field8"  placeholder="Name">
+            <label for="text-1">Field 8</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field9"  placeholder="Name">
+            <label for="text-1">Field 9</label>
+            <div class="req-mark">!</div>
+          </div>
+          <div class="input-group">
+            <input  class="text-1" type="text" name="text-1" id="field10"  placeholder="Name">
+            <label for="text-1">Field 10</label>
+            <div class="req-mark">!</div>
+          </div>
+          
+    </div>
+    <div class="btn-1"><button>Save Record</button></div>
+   </form>
+   
+   <script type="text/javascript" src="/script/AddNewRecord.js"></script>
+   
+</body>
+</html>

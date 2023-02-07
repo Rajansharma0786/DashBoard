@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>HomePage</title>
+<script type="text/javascript" th:src="@{script/IndexFile.js}"></script>
+
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+
+
+
+<th:block th:if="${session.email==null}">
+<th:block th:include="login">
+</th:block>
+</th:block>
+<div class="container">
+<th:block th:if="${session.email!=null}">
+<div th:include="bootstrap ::boot"></div>
+
+ <nav class="navbar navbar-inverse" th:fragment="navbar1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="https://visiontrek.in/" style="color: red;">Visiontrek Details</a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li class="active" ><a href="showNewRecordForm" style="color: red;"><button>Add New Record</button></a></li>
+      <li><button th:onclick="AllRecord()" style="color: red;" >ALL DATA</button></li> 
+      <li><a href="export" style="color: red;"><button>ExcelSheet</button></a></li>
+        </ul> 
+         <form th:action="@{logout}">
+          <ul class="nav navbar-nav navbar-right">
+        <li><button type="submit" style="color:red;">Logout</button></li></ul>
+     </form> 
+          
+
+</div>
+</nav>
+</th:block>
+</div>
+</body>
+</html>

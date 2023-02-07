@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SearchFile</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<style type="text/css">
+.nav {
+	background-color: lightblue;
+} 
+
+.table {
+	
+	max-width: 3051px;
+	overflow-x:scroll;	
+
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+<th:block th:if="${session.email==null}">
+<th:block th:include="login">
+</th:block>
+</th:block>
+<th:block th:if="${session.email!=null}">
+<div class="nav"th:include="navbar ::navbar1"></div>
+
+
+	<div class="table1">
+
+		<h1>Employees List</h1>
+		<!-- <div class="text-center ">
+	<a th:href="@{/showNewRecordForm}" class="btn btn-primary btn-sm mb-3" style="width: 20%; height:50px; font-size:200%;">Add Record </a>
+	</div> -->
+
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th bgcolor="green" scope="col">Id</th>
+					<th bgcolor="lightblue" scope="col">aggregrator</th>
+					<th bgcolor="lightblue" scope="col">client</th>
+					<th bgcolor="lightblue" scope="col">service</th>
+					<th bgcolor="lightblue" scope="col">amount</th>
+					<th bgcolor="lightblue" scope="col">frontEndUrl</th>
+					<th bgcolor="lightblue" scope="col">schedulersBackendUrl</th>
+					<th bgcolor="lightblue" scope="col">CCPortalUrl</th>
+					<th bgcolor="lightblue" scope="col">ServerDetails</th>
+
+					<th bgcolor="lightblue" scope="col">Action</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="record : ${recordlist}">
+				
+					<td th:text="${record.id}"></td>
+					<td th:text="${record.aggregrator}"></td>
+					<td th:text="${record.client}"></td>
+					<td th:text="${record.service}"></td>
+					<td th:text="${record.amount}"></td>
+					<td th:text="${record.frontEndUrl}"></td>
+					<td th:text="${record.schedulersBackendUrl}"></td>
+					<td th:text="${record.CCPortalUrl}"></td>
+					<td th:text="${record.ServerDetails}"></td>
+
+
+
+
+					<td><a th:href="@{showFormForUpdate/{id}(id=${record.id})}" class="btn btn-primary">Update</a> 
+<!-- 				<a th:href="@{/deleteRecord/{id}(id=${record.id})}" class="btn btn-danger">Delete</a></td>
+ --></td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="table2">
+
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th bgcolor="green" scope="col">Id</th>
+					<th bgcolor="lightblue" scope="col">Database</th>
+					<th bgcolor="lightblue" scope="col">serviceManager</th>
+					<th bgcolor="lightblue" scope="col">SDPUrl</th>
+					<th bgcolor="lightblue" scope="col">callBackUrl</th>
+					<th bgcolor="lightblue" scope="col">localLocation</th>
+					<th bgcolor="lightblue" scope="col">developer</th>
+					<th bgcolor="lightblue" scope="col">serviceLaunchDate</th>
+					<th bgcolor="lightblue" scope="col">field1</th>
+					<th bgcolor="lightblue" scope="col">field2</th>
+					<th bgcolor="lightblue" scope="col">field3</th>
+					<!-- 	<th bgcolor="lightblue" scope="col">field4</th>
+					<th bgcolor="lightblue" scope="col">field5</th>
+					<th bgcolor="lightblue" scope="col">field6</th>
+					<th bgcolor="lightblue" scope="col">field7</th> -->
+					<!-- 					<th bgcolor="lightblue" scope="col">field8</th>
+ -->
+					<!-- 					<th scope="col">field9</th>
+ -->
+					<!-- 					<th scope="col">field10</th>
+ -->
+					<th bgcolor="lightblue" scope="col">Action</th>
+
+
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr th:each="record : ${recordlist}">
+					<td th:text="${record.id}"></td>
+					<td th:text="${record.Database}"></td>
+					<td th:text="${record.serviceManager}"></td>
+					<td th:text="${record.SDPUrl}"></td>
+					<td th:text="${record.callBackUrl}"></td>
+					<td th:text="${record.localLocation}"></td>
+					<td th:text="${record.developer}"></td>
+					<td th:text="${record.serviceLaunchDate}"></td>
+					<td th:text="${record.field1}"></td>
+					<td th:text="${record.field2}"></td>
+					<td th:text="${record.field3}"></td>
+					<!-- 	<td th:text="${record.field4}"></td>
+					<td th:text="${record.field5}"></td> -->
+					<!-- <td th:text="${record.field6}"></td> -->
+					<!-- 					<td th:text="${record.field7}"></td>
+ -->
+					<!-- 					<td th:text="${record.field8}"></td>
+ -->
+					<!-- <td th:text="${record.field9}"></td>
+					<td th:text="${record.field10}"></td> -->
+
+
+					<td><a th:href="@{showFormForUpdate/{id}(id=${record.id})}"class="btn btn-primary">Update</a></td> 
+					<!-- <a th:href="@{/deleteRecord/{id}(id=${record.id})}" class="btn btn-danger">Delete</a></td> -->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<td><a th:href="@{1}" class="btn btn-primary" style="text-align: center;">BACK TO ALL DATA</a></td>
+	
+	</th:block>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Record MANAGEMENT SYSTEM</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>	
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+<style>
+h1 {      
+  position: relative;      
+  padding: 10;      
+  margin: 10;      
+  font-family: 'Exo', sans-serif;  
+  font-weight: 300;      
+  font-size: 40px;      
+  color: #080808;      
+  -webkit-transition: all 0.4s ease 0s;      
+  -o-transition: all 0.4s ease 0s;      
+  transition: all 0.4s ease 0s;      
+  text-align: center;       
+}      
+
+</style>
+
+</head>
+
+<body>
+<th:block th:if="${session.email==null}">
+<th:block th:include="login">
+</th:block>
+</th:block>
+<th:block th:if="${session.email!=null}">
+<!-- <div th:include="navbar ::navbar1"></div>
+ -->	
+
+    <div class="container">
+        <h1>Visiontrek Management System</h1>
+        <hr>
+        <form th:onsubmit="update()" th:object="${record}" id="update1"> <!-- th:action="@{saveRecord}" -->  <!-- method="POST" -->
+	
+            <input type="hidden" th:field="*{id}" class="form-control mb-4 col-4" readonly="readonly"/><br>
+			Aggregrator <input type="text" th:field="*{aggregrator}" class="form-control mb-4 col-4" placeholder="aggregrator"> <br>
+			Client <input type="text" th:field="*{client}" class="form-control mb-4 col-4" placeholder="client"> <br>
+			Service <input type="text" th:field="*{service}" class="form-control mb-4 col-4" placeholder="service"><br>
+			Amount <input type="text" th:field="*{amount}"class="form-control mb-4 col-4" placeholder="amount"> <br>
+			frontEndUrl <input type="text"	th:field="*{frontEndUrl}" class="form-control mb-4 col-4" placeholder="frontEndUrl"> <br>
+			schedulersBackendUrl <input	type="text" th:field="*{schedulersBackendUrl}" class="form-control mb-4 col-4" placeholder="schedulersBackendUrl"><br>
+			CCPortalUrl<input type="text" th:field="*{CCPortalUrl}"class="form-control mb-4 col-4" placeholder="CCPortalUrl"> <br>
+			ServerDetails<input type="text" th:field="*{ServerDetails}" class="form-control mb-4 col-4" placeholder="ServerDetails"> <br>
+			Database<input type="text" th:field="*{Database}" class="form-control mb-4 col-4" placeholder="Database"><br>
+			serviceManager	<input type="text" th:field="*{serviceManager}" class="form-control mb-4 col-4" placeholder="serviceManager"> <br>
+			SDPUrl <input type="text"	th:field="*{SDPUrl}" class="form-control mb-4 col-4" placeholder="SDPUrl"> <br>
+			callBackUrl<input type="text" th:field="*{callBackUrl}" class="form-control mb-4 col-4" placeholder="callBackUrl"><br>
+			localLocation<input type="text" th:field="*{localLocation}"class="form-control mb-4 col-4" placeholder="localLocation"> <br>
+			developer<input type="text"	th:field="*{developer}" class="form-control mb-4 col-4" placeholder="developer"> <br>
+			servicelaunchDate<input type="text" th:field="*{serviceLaunchDate}" class="form-control mb-4 col-4" placeholder="servicelaunchDate"><br>
+			field1<input type="text" th:field="*{field1}" class="form-control mb-4 col-4" placeholder="field1"> <br>
+			field2<input type="text" th:field="*{field2}" class="form-control mb-4 col-4" placeholder="field2"><br>
+			field3<input type="text" th:field="*{field3}" class="form-control mb-4 col-4" placeholder="field3"> <br>
+			field4<input type="text" th:field="*{field4}" class="form-control mb-4 col-4" placeholder="field4"> <br>
+			field5<input type="text" th:field="*{field5}" class="form-control mb-4 col-4" placeholder="field5"> <br>
+			field6<input type="text" th:field="*{field6}" class="form-control mb-4 col-4" placeholder="field6"> <br>
+			field7<input type="text" th:field="*{field7}" class="form-control mb-4 col-4" placeholder="field7"> <br>
+			field8<input type="text" th:field="*{field8}" class="form-control mb-4 col-4" placeholder="field8"> <br>
+			field9<input type="text" th:field="*{field9}" class="form-control mb-4 col-4" placeholder="field9"> <br>
+			field10<input type="text" th:field="*{field10}" class="form-control mb-4 col-4" placeholder="field10"	> <br>
+	
+                    <button type="submit" class="btn btn-info col-2"> Update Record</button>
+
+        </form>
+        
+
+        <hr>
+
+    </div>
+            <a th:href="@{/1}" > Back to Record List</a>
+    
+</th:block>    
+   
+</body>
+
+</html>
